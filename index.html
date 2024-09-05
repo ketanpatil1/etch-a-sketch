@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>Etch-A-Sketch</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="./style.css">
+    </head>
+
+    <body>
+        <div class="sidebar flex-center">
+            <div class="logo">
+                Etch-A-Sketch!
+            </div>
+            <div class="input flex-center">
+                <input type="number" min="1" max="64">x<input type="number" min="1" max="64"> cells
+                <img id="refresh-btn" src="./icons/refresh.svg" width="40px">
+            </div>
+            <button id="normal-btn" class="active">Normal Mode</button>
+            <button id="random-btn">Random Mode</button>
+            <button id="prog-dark-btn">Progressive Mode</button>
+        </div>
+        <div class="content flex-center">
+            <div class="grid-container"></div>
+        </div>
+        <script src="./script.js"></script>
+    </body>
+</html>
