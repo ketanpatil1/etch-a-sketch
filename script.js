@@ -36,6 +36,10 @@ for (input of inputs) {
 
 const refreshBtn = document.querySelector("#refresh-btn");
 refreshBtn.addEventListener("click", () => {
+    refreshBtn.classList.add("rotating");
+    setTimeout(() => {
+        refreshBtn.classList.remove("rotating");
+    }, 500);
     removeGrid();
     createGrid(cellsPerSide);
     for (input of inputs) {

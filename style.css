@@ -37,7 +37,7 @@ body {
     flex: 0 auto;
     width: 25%;
     max-width: 700px;
-    min-width: 300px;
+    min-width: 350px;
     gap: 20px;
     padding: 20px;
 }
@@ -74,8 +74,30 @@ input[type=number] {
     -moz-appearance:textfield;
 }
 
+#refresh-btn,
+button {
+    cursor: pointer;
+}
+
 #refresh-btn {
     margin-left: auto;
+    opacity: 0.5;
+    transition: opacity 200ms;
+}
+#refresh-btn:hover {
+    opacity: 1;
+}
+#refresh-btn.rotating {
+    animation: rotate-animation 500ms ease-in-out;
+}
+
+@keyframes rotate-animation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 button {
@@ -87,7 +109,16 @@ button {
     max-width: 300px;
     width: 300px;
     flex: 0;
+    transition-property: color, transform, background-color;
+    transition-duration: 200ms;
 }
+button:hover {
+    transform: scale(1.03);
+}
+button:active {
+    transform: scale(0.98);
+}
+button:hover,
 button.active {
     color: rgba(119, 165, 255, 1);
     background-color: rgba(0, 14, 42, 1);
