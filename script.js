@@ -76,6 +76,7 @@ function randomFill (e) {
     let randomBlue = getRandomInt(255);
 
     e.target.style.backgroundColor = `rgba(${randomRed}, ${randomGreen}, ${randomBlue}, 1)`;
+    e.target.style.color = `rgba(${randomRed}, ${randomGreen}, ${randomBlue}, 1)`;
     e.target.removeEventListener("mouseover", randomFill);
 }
 
