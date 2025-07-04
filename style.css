@@ -189,7 +189,11 @@ button {
     }
 }
 
+.mode-btn input[type="radio"] {
+    display: none;
+}
 .mode-btn {
+    text-align: center;
     color: var(--color-two);
     background-color: transparent;
     border: 2px solid var(--color-two);
@@ -208,7 +212,7 @@ button {
     transform: scale(0.98);
 }
 .mode-btn:hover,
-.mode-btn.active {
+.mode-btn:has(input[type="radio"]:checked) {
     color: var(--color-one);
     background-color: var(--color-two);
 }

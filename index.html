@@ -21,9 +21,18 @@
                     </svg>
                 </button>
             </div>
-            <button id="normal-btn" class="active mode-btn">Normal Mode</button>
-            <button id="random-btn" class="mode-btn">Random Mode</button>
-            <button id="prog-dark-btn" class="mode-btn">Progressive Mode</button>
+            <label for="normal-btn" class="mode-btn">
+                Normal Mode
+                <input type="radio" name="mode" id="normal-btn" checked>
+            </label>
+            <label for="random-btn" class="mode-btn">
+                Random Mode
+                <input type="radio" name="mode" id="random-btn">
+            </label>
+            <label for="prog-dark-btn" class="mode-btn">
+                Progressive Mode
+                <input type="radio" name="mode" id="prog-dark-btn">
+            </label>
         </div>
         <div class="content flex-center">
             <form class="theme-selector">

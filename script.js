@@ -48,10 +48,6 @@ const randBtn = document.querySelector("#random-btn");
 const progBtn = document.querySelector("#prog-dark-btn");
 
 normalBtn.addEventListener ("click", () => {
-    normalBtn.classList.add("active");
-    randBtn.classList.remove("active");
-    progBtn.classList.remove("active");
-
     currentFunction = normalFill;
     resetGrid(cellsPerSide);
 });
@@ -62,10 +58,6 @@ function normalFill (e) {
 }
 
 randBtn.addEventListener ("click", () => {
-    normalBtn.classList.remove("active");
-    randBtn.classList.add("active");
-    progBtn.classList.remove("active");
-
     currentFunction = randomFill;
     resetGrid(cellsPerSide);
 });
@@ -81,10 +73,6 @@ function randomFill (e) {
 }
 
 progBtn.addEventListener ("click", () => {
-    normalBtn.classList.remove("active");
-    randBtn.classList.remove("active");
-    progBtn.classList.add("active");
-
     currentFunction = progressiveFill;
     resetGrid(cellsPerSide);
 });
