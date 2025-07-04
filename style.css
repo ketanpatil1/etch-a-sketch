@@ -51,6 +51,7 @@ body {
 .logo {
     font-family: "Expletus Sans", sans-serif;
     font-size: 36px;
+    color: var(--color-two);
 }
 
 .input-container {
@@ -89,12 +90,18 @@ button {
     margin-left: auto;
     opacity: 0.5;
     transition: opacity 200ms;
+    height: 100%;
+    aspect-ratio: 1;
+    background-color: transparent;
 }
 #refresh-btn:hover {
     opacity: 1;
 }
 #refresh-btn.rotating {
     animation: rotate-animation 500ms ease-in-out;
+}
+#refresh-btn svg {
+    color: var(--color-two);
 }
 
 @keyframes rotate-animation {
@@ -106,7 +113,7 @@ button {
     }
 }
 
-.sidebar button {
+.mode-btn {
     color: var(--color-two);
     background-color: transparent;
     border: 2px solid var(--color-two);
@@ -118,14 +125,14 @@ button {
     transition-property: color, transform, background-color;
     transition-duration: 200ms;
 }
-.sidebar button:hover {
+.mode-btn:hover {
     transform: scale(1.03);
 }
-.sidebar button:active {
+.mode-btn:active {
     transform: scale(0.98);
 }
-.sidebar button:hover,
-.sidebar button.active {
+.mode-btn:hover,
+.mode-btn.active {
     color: var(--color-one);
     background-color: var(--color-two);
 }
