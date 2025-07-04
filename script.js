@@ -2,7 +2,19 @@ const gridDiv = document.querySelector(".grid-container");
 
 let gridSize = gridDiv.clientWidth;
 let cellsPerSide = 16;
-let currentFunction = normalFill;
+
+const normalBtn = document.querySelector("#normal-btn");
+const randBtn = document.querySelector("#random-btn");
+const progBtn = document.querySelector("#prog-dark-btn");
+
+let currentFunction;
+if (normalBtn.checked) {
+    currentFunction = normalFill;
+} else if (randBtn.checked) {
+    currentFunction = randomFill;
+} else if (progBtn.checked) {
+    currentFunction = progressiveFill;
+};
 
 createGrid(cellsPerSide);
 
@@ -42,10 +54,6 @@ refreshBtn.addEventListener("click", () => {
         input.value = cellsPerSide;
     }
 });
-
-const normalBtn = document.querySelector("#normal-btn");
-const randBtn = document.querySelector("#random-btn");
-const progBtn = document.querySelector("#prog-dark-btn");
 
 normalBtn.addEventListener ("click", () => {
     currentFunction = normalFill;
