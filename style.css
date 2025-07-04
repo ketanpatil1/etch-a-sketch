@@ -280,6 +280,14 @@ label[for="reverse"] svg {
     height: 42px;
     aspect-ratio: 1;
     display: block;
+    transition-property: opacity, transform;
+    transition-duration: 200ms;
+}
+label[for="reverse"] svg:hover {
+    opacity: 0.6;
+}
+html:has(#reverse:checked) label[for="reverse"] svg {
+    transform: rotate(180deg);
 }
 
 .separator {
