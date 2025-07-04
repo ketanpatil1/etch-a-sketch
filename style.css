@@ -9,9 +9,83 @@
 }
 
 :root {
-    --color-input-bg: rgba(0, 0, 0, 0.12);
-    --color-one: hsla(220, 100%, 73%, 1);
-    --color-two: hsla(220, 100%, 8%, 1);
+    --color-light-blue: hsla(220, 100%, 73%, 1);
+    --color-dark-blue: hsla(220, 100%, 8%, 1);
+    --color-light-red: hsla(0, 100%, 73%, 1);
+    --color-dark-red: hsla(0, 100%, 8%, 1);
+    --color-light-green: hsla(120, 100%, 73%, 1);
+    --color-dark-green: hsla(120, 100%, 8%, 1);
+    --color-light-yellow: hsla(60, 100%, 73%, 1);
+    --color-dark-yellow: hsla(60, 100%, 8%, 1);
+    --color-light-pink: hsla(320, 100%, 73%, 1);
+    --color-dark-pink: hsla(320, 100%, 8%, 1);
+    --color-light-gray: hsla(120, 0%, 73%, 1);
+    --color-dark-gray: hsla(125, 0%, 8%, 1);
+
+    --color-surface-dark: rgba(0, 0, 0, 0.12);
+    --color-surface-light: rgba(255, 255, 255, 0.08);
+
+    --color-input-bg: var(--color-surface-dark);
+    --color-theme-selector-bg: var(--color-surface-light);
+
+    --color-radio-blue: var(--color-light-blue);
+    --color-radio-red: var(--color-light-red);
+    --color-radio-green: var(--color-light-green);
+    --color-radio-yellow: var(--color-light-yellow);
+    --color-radio-pink: var(--color-light-pink);
+    --color-radio-gray: var(--color-light-gray);
+}
+:root:has(#reverse:checked) {
+    --color-input-bg: var(--color-surface-light);
+    --color-theme-selector-bg: var(--color-surface-dark);
+}
+:root:has(#blue:checked) {
+    --color-one: var(--color-light-blue);
+    --color-two: var(--color-dark-blue);
+}
+:root:has(#blue:checked):has(#reverse:checked) {
+    --color-one: var(--color-dark-blue);
+    --color-two: var(--color-light-blue);
+}
+:root:has(#red:checked) {
+    --color-one: var(--color-light-red);
+    --color-two: var(--color-dark-red);
+}
+:root:has(#red:checked):has(#reverse:checked) {
+    --color-one: var(--color-dark-red);
+    --color-two: var(--color-light-red);
+}
+:root:has(#green:checked) {
+    --color-one: var(--color-light-green);
+    --color-two: var(--color-dark-green);
+}
+:root:has(#green:checked):has(#reverse:checked) {
+    --color-one: var(--color-dark-green);
+    --color-two: var(--color-light-green);
+}
+:root:has(#gray:checked) {
+    --color-one: var(--color-light-gray);
+    --color-two: var(--color-dark-gray);
+}
+:root:has(#gray:checked):has(#reverse:checked) {
+    --color-one: var(--color-dark-gray);
+    --color-two: var(--color-light-gray);
+}
+:root:has(#yellow:checked) {
+    --color-one: var(--color-light-yellow);
+    --color-two: var(--color-dark-yellow);
+}
+:root:has(#yellow:checked):has(#reverse:checked) {
+    --color-one: var(--color-dark-yellow);
+    --color-two: var(--color-light-yellow);
+}
+:root:has(#pink:checked) {
+    --color-one: var(--color-light-pink);
+    --color-two: var(--color-dark-pink);
+}
+:root:has(#pink:checked):has(#reverse:checked) {
+    --color-one: var(--color-dark-pink);
+    --color-two: var(--color-light-pink);
 }
 
 *, *::before, *::after {
@@ -141,6 +215,71 @@ button {
     width: 100%;
     padding: 20px;
     flex-direction: column;
+    justify-content: space-around;
+}
+
+.theme-selector {
+    background-color: var(--color-theme-selector-bg);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    height: 64px;
+    gap: 16px;
+    padding: 0 12px;
+}
+
+.colors {
+    padding: 8px;
+    display: flex;
+    gap: 28px;
+}
+
+.colors input[type="radio"] {
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    outline: 3px solid var(--radio-color);
+    outline-offset: 3px;
+    border-radius: 50%;
+}
+.colors input[type="radio"]:checked {
+    background-color: var(--radio-color);
+}
+.colors input[type="radio"]#blue {
+    --radio-color: var(--color-radio-blue);
+}
+.colors input[type="radio"]#red {
+    --radio-color: var(--color-radio-red);
+}
+.colors input[type="radio"]#green {
+    --radio-color: var(--color-radio-green);
+}
+.colors input[type="radio"]#yellow {
+    --radio-color: var(--color-radio-yellow);
+}
+.colors input[type="radio"]#pink {
+    --radio-color: var(--color-radio-pink);
+}
+.colors input[type="radio"]#gray {
+    --radio-color: var(--color-radio-gray);
+}
+
+.colors label,
+#reverse {
+    display: none;
+}
+
+label[for="reverse"] svg {
+    color: var(--color-one);
+    height: 42px;
+    aspect-ratio: 1;
+    display: block;
+}
+
+.separator {
+    width: 2px;
+    height: 70%;
+    background-color: var(--color-one);
 }
 
 .grid-container {
@@ -154,4 +293,22 @@ button {
 
 .cell {
     border: 1px solid var(--color-one);
+}
+.cell.normal-fill {
+    background-color: var(--color-one);
+}
+.cell.progressive-one {
+    background-color: hsla(from var(--color-one) h s l / 0.2);
+}
+.cell.progressive-two {
+    background-color: hsla(from var(--color-one) h s l / 0.4);
+}
+.cell.progressive-three {
+    background-color: hsla(from var(--color-one) h s l / 0.6);
+}
+.cell.progressive-four {
+    background-color: hsla(from var(--color-one) h s l / 0.8);
+}
+.cell.progressive-five {
+    background-color: hsla(from var(--color-one) h s l / 1);
 }

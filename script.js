@@ -4,8 +4,6 @@ let gridSize = gridDiv.clientWidth;
 let cellsPerSide = 16;
 let currentFunction = normalFill;
 
-let fillColor = "rgba(119, 165, 255, 1)";
-
 createGrid(cellsPerSide);
 
 const inputs = document.querySelectorAll("input");
@@ -62,7 +60,7 @@ normalBtn.addEventListener ("click", () => {
 });
 
 function normalFill (e) {
-    e.target.style.backgroundColor = fillColor;
+    e.target.classList.toggle("normal-fill");
     e.target.removeEventListener("mouseover", normalFill);
 }
 
@@ -95,17 +93,18 @@ progBtn.addEventListener ("click", () => {
     createGrid(cellsPerSide);
 });
 
+const progressiveClasses = [
+    "progressive-one",
+    "progressive-two",
+    "progressive-three",
+    "progressive-four",
+    "progressive-five"
+];
 function progressiveFill (e) {
-    let oldColor = window.getComputedStyle(e.target).backgroundColor;
-    if (oldColor.match(/\s\d\)$/)) {
-        e.target.style.backgroundColor = fillColor.replace("1)", "0.1)");
-    } else {
-        let opacityMatch = oldColor.match(/\d.\d(?=\)$)/);
-        if (opacityMatch) {
-            let opacity = Number(opacityMatch[0]);
-            e.target.style.backgroundColor = oldColor.replace(/\d.\d(?=\)$)/, `${opacity + 0.2}`);
-        } else {
-            e.target.removeEventListener("mouseover", progressiveFill);
+    for (let index = 0; index < progressiveClasses.length; index++) {
+        if (!e.target.classList.contains(progressiveClasses[index])) {
+            e.target.classList.add(progressiveClasses[index]);
+            break;
         }
     }
 }
