@@ -25,8 +25,7 @@ for (input of inputs) {
             }
 
             if (cellsPerSide > 0) {
-                removeGrid();
-                createGrid(cellsPerSide);
+                resetGrid(cellsPerSide);
             }
         }
     });
@@ -38,8 +37,7 @@ refreshBtn.addEventListener("click", () => {
     setTimeout(() => {
         refreshBtn.classList.remove("rotating");
     }, 500);
-    removeGrid();
-    createGrid(cellsPerSide);
+    resetGrid(cellsPerSide);
     for (input of inputs) {
         input.value = cellsPerSide;
     }
@@ -55,8 +53,7 @@ normalBtn.addEventListener ("click", () => {
     progBtn.classList.remove("active");
 
     currentFunction = normalFill;
-    removeGrid();
-    createGrid(cellsPerSide);
+    resetGrid(cellsPerSide);
 });
 
 function normalFill (e) {
@@ -70,8 +67,7 @@ randBtn.addEventListener ("click", () => {
     progBtn.classList.remove("active");
 
     currentFunction = randomFill;
-    removeGrid();
-    createGrid(cellsPerSide);
+    resetGrid(cellsPerSide);
 });
 
 function randomFill (e) {
@@ -89,8 +85,7 @@ progBtn.addEventListener ("click", () => {
     progBtn.classList.add("active");
 
     currentFunction = progressiveFill;
-    removeGrid();
-    createGrid(cellsPerSide);
+    resetGrid(cellsPerSide);
 });
 
 const progressiveClasses = [
@@ -122,12 +117,23 @@ function createGrid(cellsPerSide) {
 
         gridDiv.appendChild(cell);
     }
+    gridDiv.classList.remove("removed");
+    gridDiv.classList.add("created");
 }
 
 function removeGrid() {
     while(gridDiv.firstChild) {
         gridDiv.removeChild(gridDiv.firstChild);
     }
+}
+
+function resetGrid(cellsPerSide) {
+    gridDiv.classList.remove("created");
+    gridDiv.classList.add("removed");
+    setTimeout(() => {
+        removeGrid();
+        createGrid(cellsPerSide);
+    }, 300);
 }
 
 function getRandomInt(max) {
