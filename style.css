@@ -157,11 +157,6 @@ input[type=number] {
     -moz-appearance:textfield;
 }
 
-#refresh-btn,
-button {
-    cursor: pointer;
-}
-
 #refresh-btn {
     margin-left: auto;
     opacity: 0.5;
