@@ -214,3 +214,16 @@ function resetGrid(cellsPerSide) {
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
 }
+
+dialog = document.querySelector("dialog");
+dialog.addEventListener("click",(e) => {
+    if (e.target === dialog) {
+        dialog.close();
+    }
+});
+dialog.showModal();
+
+closeBtn = document.querySelector(".close-btn");
+closeBtn.addEventListener("click", () => {
+    dialog.close();
+});

@@ -1,4 +1,9 @@
 @font-face {
+    font-family: "Roboto Mono";
+    src: url(./fonts/roboto-mono_5.2.6/roboto-mono-latin-400-normal.woff2);
+}
+
+@font-face {
     font-family: "Inter";
     src: url(./fonts/inter_5.0.16/inter-latin-700-normal.woff2);
 }
@@ -386,4 +391,66 @@ html:has(#random-btn:checked) .cell:hover {
 }
 .cell.progressive-five {
     background-color: hsla(from var(--color-one) h s l / 1);
+}
+
+dialog::backdrop {
+    background-color: hsla(from var(--color-two) h s l / 0.75);
+}
+dialog {
+    margin: auto;
+    background-color: var(--color-one);
+    color: var(--color-two);
+    border-radius: 16px;
+}
+
+.close-btn {
+    background-color: transparent;
+    position: absolute;
+    right: 24px;
+    top: 24px;
+    display: block;
+}
+.close-btn svg {
+    width: 42px;
+    aspect-ratio: 1;
+    color: var(--color-two);
+}
+
+dialog section {
+    padding: 32px;
+}
+dialog h2,
+dialog .logo {
+    font-size: 28px;
+    padding-bottom: 8px;
+}
+dialog p {
+    padding: 4px 0;
+}
+dialog p,
+dialog li {
+    font-weight: 400;
+}
+dialog ul {
+    padding-inline-start: 16px;
+}
+dialog li {
+    list-style-position: inside;
+    margin-top: 12px;
+    font-size: 16px;
+}
+dialog svg {
+    width: 32px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+kbd:not(:has(kbd)) {
+    color: var(--color-two);
+    background-color: var(--color-one);
+    border-radius: 4px;
+    padding-inline: 4px;
+    box-shadow: 0 2px 0 3px var(--color-two);
+    margin-inline: .25ch;
+    font-family: "Roboto Mono", monospace;
 }
