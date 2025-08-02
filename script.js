@@ -43,6 +43,11 @@ document.addEventListener("keypress", (e) => {
         case "r":
             refreshBtn.click();
             break;
+        case "?":
+            helpBtn.click();
+            break;
+        default:
+            break;
     }
 });
 document.addEventListener("keydown", (e) => {
@@ -226,4 +231,9 @@ dialog.showModal();
 const closeBtn = document.querySelector(".close-btn");
 closeBtn.addEventListener("click", () => {
     dialog.close();
+});
+
+const helpBtn = document.querySelector(".help-btn");
+helpBtn.addEventListener("click", () => {
+    dialog.showModal();
 });

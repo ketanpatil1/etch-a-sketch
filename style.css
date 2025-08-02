@@ -295,6 +295,14 @@ input[type=number] {
     --radio-color: var(--color-radio-gray);
 }
 
+.help-btn {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    background-color: transparent;
+}
+
+.help-btn svg,
 .input svg,
 label[for="inverse-btn"] svg {
     color: var(--color-one);
@@ -308,9 +316,13 @@ label[for="inverse-btn"] svg {
     border-radius: 12px;
     padding: 4px;
 }
+.help-btn svg,
 .input svg:hover,
 label[for="inverse-btn"] svg:hover {
     opacity: 0.6;
+}
+.help-btn svg:hover {
+    opacity: 1;
 }
 .input input[type="radio"]:checked + label svg {
     background-color: var(--color-one);
