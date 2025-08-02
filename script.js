@@ -215,7 +215,7 @@ function getRandomInt(max) {
     return Math.floor(Math.random() * max);
 }
 
-dialog = document.querySelector("dialog");
+const dialog = document.querySelector("dialog");
 dialog.addEventListener("click",(e) => {
     if (e.target === dialog) {
         dialog.close();
@@ -223,7 +223,7 @@ dialog.addEventListener("click",(e) => {
 });
 dialog.showModal();
 
-closeBtn = document.querySelector(".close-btn");
+const closeBtn = document.querySelector(".close-btn");
 closeBtn.addEventListener("click", () => {
     dialog.close();
 });
