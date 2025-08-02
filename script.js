@@ -22,6 +22,12 @@ document.addEventListener("keypress", (e) => {
         case "m":
             inputType = 0;
             break;
+        case "i":
+            inverseBtn.click();
+            break;
+        case "r":
+            refreshBtn.click();
+            break;
     }
 });
 document.addEventListener("keydown", (e) => {
@@ -83,6 +89,7 @@ for (input of inputs) {
     });
 }
 
+const inverseBtn = document.querySelector("#inverse-btn");
 const refreshBtn = document.querySelector("#refresh-btn");
 refreshBtn.addEventListener("click", () => {
     refreshBtn.classList.add("rotating");

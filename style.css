@@ -35,7 +35,7 @@
     --color-radio-pink: var(--color-light-pink);
     --color-radio-gray: var(--color-light-gray);
 }
-:root:has(#reverse:checked) {
+:root:has(#inverse-btn:checked) {
     --color-input-bg: var(--color-surface-light);
     --color-theme-selector-bg: var(--color-surface-dark);
 }
@@ -43,7 +43,7 @@
     --color-one: var(--color-light-blue);
     --color-two: var(--color-dark-blue);
 }
-:root:has(#blue:checked):has(#reverse:checked) {
+:root:has(#blue:checked):has(#inverse-btn:checked) {
     --color-one: var(--color-dark-blue);
     --color-two: var(--color-light-blue);
 }
@@ -51,7 +51,7 @@
     --color-one: var(--color-light-red);
     --color-two: var(--color-dark-red);
 }
-:root:has(#red:checked):has(#reverse:checked) {
+:root:has(#red:checked):has(#inverse-btn:checked) {
     --color-one: var(--color-dark-red);
     --color-two: var(--color-light-red);
 }
@@ -59,7 +59,7 @@
     --color-one: var(--color-light-green);
     --color-two: var(--color-dark-green);
 }
-:root:has(#green:checked):has(#reverse:checked) {
+:root:has(#green:checked):has(#inverse-btn:checked) {
     --color-one: var(--color-dark-green);
     --color-two: var(--color-light-green);
 }
@@ -67,7 +67,7 @@
     --color-one: var(--color-light-gray);
     --color-two: var(--color-dark-gray);
 }
-:root:has(#gray:checked):has(#reverse:checked) {
+:root:has(#gray:checked):has(#inverse-btn:checked) {
     --color-one: var(--color-dark-gray);
     --color-two: var(--color-light-gray);
 }
@@ -75,7 +75,7 @@
     --color-one: var(--color-light-yellow);
     --color-two: var(--color-dark-yellow);
 }
-:root:has(#yellow:checked):has(#reverse:checked) {
+:root:has(#yellow:checked):has(#inverse-btn:checked) {
     --color-one: var(--color-dark-yellow);
     --color-two: var(--color-light-yellow);
 }
@@ -83,7 +83,7 @@
     --color-one: var(--color-light-pink);
     --color-two: var(--color-dark-pink);
 }
-:root:has(#pink:checked):has(#reverse:checked) {
+:root:has(#pink:checked):has(#inverse-btn:checked) {
     --color-one: var(--color-dark-pink);
     --color-two: var(--color-light-pink);
 }
@@ -274,11 +274,11 @@ input[type=number] {
 }
 
 .colors label,
-#reverse {
+#inverse-btn {
     display: none;
 }
 
-label[for="reverse"] svg {
+label[for="inverse-btn"] svg {
     color: var(--color-one);
     height: 42px;
     aspect-ratio: 1;
@@ -286,10 +286,10 @@ label[for="reverse"] svg {
     transition-property: opacity, transform;
     transition-duration: 200ms;
 }
-label[for="reverse"] svg:hover {
+label[for="inverse-btn"] svg:hover {
     opacity: 0.6;
 }
-html:has(#reverse:checked) label[for="reverse"] svg {
+html:has(#inverse-btn:checked) label[for="inverse-btn"] svg {
     transform: rotate(180deg);
 }
 
