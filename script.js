@@ -24,6 +24,29 @@ document.addEventListener("keypress", (e) => {
             break;
     }
 });
+document.addEventListener("keydown", (e) => {
+    switch (e.key) {
+        case "Control":
+            inputType = 1;
+            break;
+        case "Shift":
+            inputType = -1;
+            break;
+        default:
+            break;
+    }
+});
+document.addEventListener("keyup", (e) => {
+    switch (e.key) {
+        case "Control":
+        case "Shift":
+            inputType = 0;
+            break;
+        default:
+            break;
+    }
+});
+
 let currentFunction;
 if (normalBtn.checked) {
     currentFunction = normalFill;
