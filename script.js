@@ -7,6 +7,23 @@ const normalBtn = document.querySelector("#normal-btn");
 const randBtn = document.querySelector("#random-btn");
 const progBtn = document.querySelector("#prog-dark-btn");
 
+// 0 -> move around
+// 1 -> draw
+// -1 -> erase
+let inputType = 0;
+document.addEventListener("keypress", (e) => {
+    switch(e.key) {
+        case "d":
+            inputType = 1;
+            break;
+        case "e":
+            inputType = -1;
+            break;
+        case "m":
+            inputType = 0;
+            break;
+    }
+});
 let currentFunction;
 if (normalBtn.checked) {
     currentFunction = normalFill;
@@ -61,8 +78,11 @@ normalBtn.addEventListener ("click", () => {
 });
 
 function normalFill (e) {
-    e.target.classList.toggle("normal-fill");
-    e.target.removeEventListener("mouseover", normalFill);
+    if (inputType == 1) {
+        e.target.classList.add("normal-fill");
+    } else if (inputType == -1) {
+        e.target.classList.remove("normal-fill");
+    }
 }
 
 randBtn.addEventListener ("click", () => {
@@ -71,13 +91,17 @@ randBtn.addEventListener ("click", () => {
 });
 
 function randomFill (e) {
-    let randomRed = getRandomInt(255);
-    let randomGreen = getRandomInt(255);
-    let randomBlue = getRandomInt(255);
+    if (inputType == 1) {
+        let randomRed = getRandomInt(255);
+        let randomGreen = getRandomInt(255);
+        let randomBlue = getRandomInt(255);
 
-    e.target.style.backgroundColor = `rgba(${randomRed}, ${randomGreen}, ${randomBlue}, 1)`;
-    e.target.style.color = `rgba(${randomRed}, ${randomGreen}, ${randomBlue}, 1)`;
-    e.target.removeEventListener("mouseover", randomFill);
+        e.target.style.backgroundColor = `rgba(${randomRed}, ${randomGreen}, ${randomBlue}, 1)`;
+        e.target.style.color = `rgba(${randomRed}, ${randomGreen}, ${randomBlue}, 1)`;
+    } else if (inputType == -1) {
+        e.target.style.backgroundColor = "";
+        e.target.style.color = window.getComputedStyle(document.documentElement).getPropertyValue("--color-one");
+    }
 }
 
 progBtn.addEventListener ("click", () => {
@@ -93,10 +117,19 @@ const progressiveClasses = [
     "progressive-five"
 ];
 function progressiveFill (e) {
-    for (let index = 0; index < progressiveClasses.length; index++) {
-        if (!e.target.classList.contains(progressiveClasses[index])) {
-            e.target.classList.add(progressiveClasses[index]);
-            break;
+    if (inputType == 1) {
+        for (let index = 0; index < progressiveClasses.length; index++) {
+            if (!e.target.classList.contains(progressiveClasses[index])) {
+                e.target.classList.add(progressiveClasses[index]);
+                break;
+            }
+        }
+    } else if (inputType == -1) {
+        for (let index = progressiveClasses.length - 1; index >= 0; index--) {
+            if (e.target.classList.contains(progressiveClasses[index])) {
+                e.target.classList.remove(progressiveClasses[index]);
+                break;
+            }
         }
     }
 }
@@ -110,7 +143,7 @@ function createGrid(cellsPerSide) {
         cell.classList.add("cell");
         cell.id = i+1;
 
-        cell.addEventListener ("mouseover", currentFunction);
+        cell.addEventListener("mouseover", currentFunction);
 
         gridDiv.appendChild(cell);
     }
