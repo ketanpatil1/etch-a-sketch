@@ -7,20 +7,35 @@ const normalBtn = document.querySelector("#normal-btn");
 const randBtn = document.querySelector("#random-btn");
 const progBtn = document.querySelector("#prog-dark-btn");
 
+const drawBtn = document.querySelector("#draw");
+const eraseBtn = document.querySelector("#erase");
+const moveBtn = document.querySelector("#move");
+
 // 0 -> move around
 // 1 -> draw
 // -1 -> erase
 let inputType = 0;
+
+moveBtn.addEventListener("click", () => {
+    inputType = 0;
+});
+drawBtn.addEventListener("click", () => {
+    inputType = 1;
+});
+eraseBtn.addEventListener("click", () => {
+    inputType = -1;
+});
+
 document.addEventListener("keypress", (e) => {
     switch(e.key) {
         case "d":
-            inputType = 1;
+            drawBtn.click();
             break;
         case "e":
-            inputType = -1;
+            eraseBtn.click();
             break;
         case "m":
-            inputType = 0;
+            moveBtn.click();
             break;
         case "i":
             inverseBtn.click();
@@ -33,10 +48,10 @@ document.addEventListener("keypress", (e) => {
 document.addEventListener("keydown", (e) => {
     switch (e.key) {
         case "Control":
-            inputType = 1;
+            drawBtn.click();
             break;
         case "Shift":
-            inputType = -1;
+            eraseBtn.click();
             break;
         default:
             break;
@@ -46,7 +61,7 @@ document.addEventListener("keyup", (e) => {
     switch (e.key) {
         case "Control":
         case "Shift":
-            inputType = 0;
+            moveBtn.click();
             break;
         default:
             break;

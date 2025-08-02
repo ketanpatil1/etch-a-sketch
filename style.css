@@ -231,6 +231,23 @@ input[type=number] {
     padding: 0 12px;
 }
 
+.separator {
+    width: 2px;
+    height: 70%;
+    background-color: var(--color-one);
+}
+
+.input input[type="radio"],
+.colors label,
+#inverse-btn {
+    display: none;
+}
+
+.input {
+    display: flex;
+    gap: 16px;
+}
+
 .colors {
     padding: 8px;
     display: flex;
@@ -273,30 +290,30 @@ input[type=number] {
     --radio-color: var(--color-radio-gray);
 }
 
-.colors label,
-#inverse-btn {
-    display: none;
-}
-
+.input svg,
 label[for="inverse-btn"] svg {
     color: var(--color-one);
     height: 42px;
     aspect-ratio: 1;
     display: block;
-    transition-property: opacity, transform;
+    transition-property: opacity, transform, background-color;
     transition-duration: 200ms;
 }
+.input svg {
+    border-radius: 12px;
+    padding: 4px;
+}
+.input svg:hover,
 label[for="inverse-btn"] svg:hover {
     opacity: 0.6;
 }
+.input input[type="radio"]:checked + label svg {
+    background-color: var(--color-one);
+    color: var(--color-two);
+    padding: 4px;
+}
 html:has(#inverse-btn:checked) label[for="inverse-btn"] svg {
     transform: rotate(180deg);
-}
-
-.separator {
-    width: 2px;
-    height: 70%;
-    background-color: var(--color-one);
 }
 
 .grid-container {
