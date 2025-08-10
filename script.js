@@ -14,8 +14,6 @@ const moveBtn = document.querySelector("#move");
 // 0 -> move around
 // 1 -> draw
 // -1 -> erase
-let inputType = 0;
-
 moveBtn.addEventListener("click", () => {
     inputType = 0;
 });
@@ -25,6 +23,8 @@ drawBtn.addEventListener("click", () => {
 eraseBtn.addEventListener("click", () => {
     inputType = -1;
 });
+
+drawBtn.click()
 
 document.addEventListener("keypress", (e) => {
     switch(e.key) {
